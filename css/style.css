@@ -1,0 +1,164 @@
+@import url(variables.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    background: red;
+    top: 0;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+}
+
+.header__div{
+    margin-top: 3.5vh;
+}
+
+.main{
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 3.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "left__section mid__section right__section";
+}
+
+.left__section{
+    grid-area: left__section;
+    background: blue;
+    padding: .5vw;
+}
+
+.left__nav{
+    height: 79vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+}
+
+.left__nav__1 :first-child,
+.left__nav__2 :first-child,
+.left__nav__3 :first-child,
+.left__nav__4 :first-child,
+.left__nav__5 :first-child,
+.left__nav__6 :first-child,
+.left__nav__7 :first-child{
+    display: flex;
+    flex-direction: row;
+    margin-top: -.1vw;
+}
+
+.left__nav__1 :first-child i,
+.left__nav__2 :first-child i,
+.left__nav__3 :first-child i,
+.left__nav__4 :first-child i,
+.left__nav__5 :first-child i,
+.left__nav__6 :first-child i,
+.left__nav__7 :first-child i{
+    margin-left: 1.6vw;
+    font-size: 1.9vw;
+    margin-right: .5vw;
+}
+
+.last__left__nav__1,
+.last__left__nav__2,
+.last__left__nav__3,
+.last__left__nav__4,
+.last__left__nav__5,
+.last__left__nav__6,
+.last__left__nav__7{
+    display: flex;
+    margin-left: 4vw;
+    width: 10vw;
+}
+
+.mid__section{
+    grid-area: mid__section;
+    background: green;
+}
+
+.right__section{
+    grid-area: right__section;
+    background: aqua;
+    padding: .5vw;
+}
+
+.right__nav{
+    height: 79vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+}
+
+.right__nav__1,
+.right__nav__2,
+.right__nav__3,
+.right__nav__4,
+.right__nav__5,
+.right__nav__6{
+    display: flex;
+    height: 6vh;
+}
+
+.right__nav__1 div progress,
+.right__nav__2 div progress,
+.right__nav__3 div progress,
+.right__nav__4 div progress,
+.right__nav__5 div progress,
+.right__nav__6 div progress{
+    margin-top: 1vh;
+}
+
+.right__nav__1 div h4,
+.right__nav__2 div h4,
+.right__nav__3 div h4,
+.right__nav__4 div h4,
+.right__nav__5 div h4,
+.right__nav__6 div h4{
+    margin-top: 2vh;
+    margin-right: 1vw;
+}
+
+.footer{
+    background: yellowgreen;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 11vh;
+}
+
+.principal__footer__div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.div__footer__01{
+    background: pink;
+    width: 20vw;
+    height: 11vh;
+    
+}
+
+.div__footer__02{
+    background: purple;
+    width: 55%;
+    height: 8.5vh;
+    margin-top: 2.5vh;
+}
+
+.div__footer__02__nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.div__footer__03{
+    background: yellow;
+    width: 20vw;
+    height: 11vh;
+}
