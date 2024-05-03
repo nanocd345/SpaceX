@@ -108,7 +108,7 @@ export const progressHeightRocket = async(Rockets)=>{
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
-        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
+        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} FT`
     
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)
@@ -149,7 +149,7 @@ export const progressDiameterRocket = async(Rockets)=>{
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
-        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
+        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} FT`
     
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)
@@ -190,7 +190,7 @@ export const progressSecondStageDiameterRocket = async(Rockets)=>{
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
-        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
+        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} FT`
     
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)
@@ -231,7 +231,7 @@ export const progressSecondStageHeightRocket = async(Rockets)=>{
         let spanLast = document.createElement("span");
         let numMeters = new Intl.NumberFormat('cop').format(val.meters)
         let numFeet = new Intl.NumberFormat('cop').format(val.feet)
-        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`
+        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} FT`
     
         divFirst.append(labelFist)
         divFirst.append(ProgressFist)

@@ -12,6 +12,10 @@ import {
     informationWebRocket
 } from "./information.js";
 import { 
+    informRocketEngineThrustSeaLevel, 
+    informRocketEngineThrustVacuum
+} from "./inform.js";
+import { 
     imageRockets 
 } from "./card.js";
 import { 
@@ -46,6 +50,9 @@ const getRocketsId = async(e)=>{
     await informationLaunchCostRocket(Rocket.cost_per_launch)
     await informationFirstFlightRocket(Rocket.first_flight)
     await informationWebRocket(Rocket.wikipedia)
+
+    await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
+    await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
     await imageRockets(Rocket.flickr_images);
 
     await progressRocketWeight(Rocket)
