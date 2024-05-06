@@ -12,8 +12,13 @@ import {
     informationWebRocket
 } from "./information.js";
 import { 
+    tableRocketColum1, 
+    tableRocketColum2
+} from "./tables.js";
+import { 
     informRocketEngineThrustSeaLevel, 
-    informRocketEngineThrustVacuum
+    informRocketEngineThrustVacuum,
+    informRocketEnginethrustToWeight
 } from "./inform.js";
 import { 
     imageRockets 
@@ -26,6 +31,8 @@ import {
     progressSecondStageDiameterRocket,
     progressSecondStageHeightRocket,
 } from "../modulesComponents/progressBar.js";
+
+
 
 const getRocketsId = async(e)=>{
     e.preventDefault();
@@ -44,8 +51,8 @@ const getRocketsId = async(e)=>{
 
     let Rocket = await getAllRocketsId(e.target.id);
     console.log(Rocket);
+
     await informationRockets(Rocket.country, Rocket.description)
-    
     await nameRockets(Rocket.name)
     await informationLaunchCostRocket(Rocket.cost_per_launch)
     await informationFirstFlightRocket(Rocket.first_flight)
@@ -53,7 +60,11 @@ const getRocketsId = async(e)=>{
 
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
+    await informRocketEnginethrustToWeight(Rocket.engines)
     await imageRockets(Rocket.flickr_images);
+
+    await tableRocketColum1(Rocket)
+    await tableRocketColum2(Rocket)
 
     await progressRocketWeight(Rocket)
     await progressPayloadWeights(Rocket)

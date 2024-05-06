@@ -1,6 +1,7 @@
 import {
     getAllRocketEngineTotal,
-    getAllRocketEngineThrustVacuumTotal
+    getAllRocketEngineThrustVacuumTotal,
+    getAllRocketThrustToWeight
 } from "../modules/rockets.js";
 
 
@@ -68,7 +69,6 @@ export const informRocketEngineThrustVacuum = async(thrust_vacuum)=>{
     divFirst.append(divFirstChildren)
     div.append(divFirst)
     let section__information__1 = document.querySelector("#section__information__1");
-    // section__information__1.innerHTML = "";
     section__information__1.append(div)
 
     // <div class="carousel__item">
@@ -79,4 +79,32 @@ export const informRocketEngineThrustVacuum = async(thrust_vacuum)=>{
     //         </div>
     //     </div>
     // </div>
+}
+
+export const getAllRocketSecondStageInfo = async(thrust)=>{
+    let {kN:totalValor} = await getAllRocketThrustToWeight();
+    let pocentaje = (thrust.kN * 100) / totalValor;
+
+    let div = document.createElement('div');
+    div.classList.add("carousel__item")
+    let divFirst = document.createElement('div');
+    divFirst.classList.add("item__progress__bar");
+    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${pocentaje}%, transparent 0)`
+    let divFirstChildren = document.createElement('div');
+    divFirstChildren.classList.add("progress__value")
+    let strong = document.createElement('strong');
+    strong.textContent = "thrust to weight"
+    let smallFirst = document.createElement('small');
+    smallFirst.textContent = `${pocentaje.toFixed(2)} %`
+    
+    let smallLast = document.createElement('small');
+    let value = new Intl.NumberFormat('cop').format(thrust_to_weight.NumberFormat)
+    smallLast.innerHTML = `${value}`
+
+    divFirstChildren.append(strong, smallFirst, smallLast)
+    divFirst.append(divFirstChildren)
+    div.append(divFirst)
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    section__information__2.append(div)
 }

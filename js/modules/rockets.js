@@ -191,3 +191,25 @@ export const getAllRocketEngineThrustVacuumTotal  = async() =>{
     let {docs:[{engines} = maxEnginesRocket]} = await res.json();
     return engines.thrust_vacuum;
 }
+
+export const getAllRocketSecondStageInfo = async() =>{
+    let config = {
+        headers:{
+            "content-type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify({
+            "options": {
+                "select": {
+                    "second_stage":1
+                },
+                "sort":{
+                    "second_stage.thrust": "desc"
+                }
+            }
+        })
+    }
+    let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
+    let {docs:[{second_stage} = maxSecondStageInfo]} = await res.json();
+    return second_stage.thrust;
+}
