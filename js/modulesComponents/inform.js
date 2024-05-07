@@ -1,7 +1,7 @@
 import {
     getAllRocketEngineTotal,
     getAllRocketEngineThrustVacuumTotal,
-    getAllRocketThrustToWeight
+    getAllRocketSecondStageInfo
 } from "../modules/rockets.js";
 
 
@@ -81,8 +81,8 @@ export const informRocketEngineThrustVacuum = async(thrust_vacuum)=>{
     // </div>
 }
 
-export const getAllRocketSecondStageInfo = async(thrust)=>{
-    let {kN:totalValor} = await getAllRocketThrustToWeight();
+export const informRocketSecondStageInfo = async(thrust)=>{
+    let {kN:totalValor} = await getAllRocketSecondStageInfo();
     let pocentaje = (thrust.kN * 100) / totalValor;
 
     let div = document.createElement('div');
@@ -93,13 +93,14 @@ export const getAllRocketSecondStageInfo = async(thrust)=>{
     let divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value")
     let strong = document.createElement('strong');
-    strong.textContent = "thrust to weight"
+    strong.textContent = "Second stage thrust"
     let smallFirst = document.createElement('small');
     smallFirst.textContent = `${pocentaje.toFixed(2)} %`
     
     let smallLast = document.createElement('small');
-    let value = new Intl.NumberFormat('cop').format(thrust_to_weight.NumberFormat)
-    smallLast.innerHTML = `${value}`
+    let kN = new Intl.NumberFormat('cop').format(thrust.kN)
+    let lbf = new Intl.NumberFormat('cop').format(thrust.lbf)
+    smallLast.innerHTML = `${kN} kN <br> ${lbf} Lbf` 
 
     divFirstChildren.append(strong, smallFirst, smallLast)
     divFirst.append(divFirstChildren)
